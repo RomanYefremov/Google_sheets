@@ -4,9 +4,8 @@ from time import sleep
 import schedule
 from threading import Thread
 
-# 345050629 id в телеге<------------
-# бот айди<------------
-bot = telebot.TeleBot("5684922716:AAF7NVQNSop5vpHw0dfATg9Y5miS-GOoGxQ", parse_mode=None)
+
+bot = telebot.TeleBot("Bot ID", parse_mode=None)
 cg = CoinGeckoAPI()
 
 # список морет которые отслеживаем<------------
@@ -33,7 +32,7 @@ def monday():
         if change1h is None:
             change1h = 0
         if change1h >= 5 or change1h <= -5:
-            bot.send_message(345050629, f'{name} change to {round(change1h, 2)}!')
+            bot.send_message(Userid, f'{name} change to {round(change1h, 2)}!')
 
 
 # отправляет цену в телегу<------------
@@ -44,7 +43,7 @@ def cheker():
         name = h[0]['symbol']
         correntprice = h[0]['current_price']
         dictcoin += name, correntprice
-    bot.send_message(345050629, f'{dictcoin}')
+    bot.send_message(Userid, f'{dictcoin}')
 
 
 # настройка работы функций по времени<------------
