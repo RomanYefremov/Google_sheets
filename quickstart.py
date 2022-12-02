@@ -21,7 +21,7 @@ while True:
     credentials = service_account.Credentials.from_service_account_file(
         SERVICE_ACCOUNT_FILE, scopes=SCOPES)
     # айди таблицы и указания листа<------------
-    SAMPLE_SPREADSHEET_ID = '1BLEpm6PJAiwmzQ_rGy8oVCJGLOGmQ68NgAnl0a_mCmE'
+    SAMPLE_SPREADSHEET_ID = 'SheetsID'
     SAMPLE_RANGE_NAME = 'Лист1'
 
     service = build('sheets', 'v4', credentials=credentials).spreadsheets().values()
@@ -31,7 +31,7 @@ while True:
 
     data_from_sheet = result.get('values', [])
     # удаление из двблицы элиментов по заданым координатам в range<------------
-    spreadsheet_id = '1BLEpm6PJAiwmzQ_rGy8oVCJGLOGmQ68NgAnl0a_mCmE'
+    spreadsheet_id = 'SheetsID'
     request = service.clear(spreadsheetId=spreadsheet_id, range='Лист1!F2:I36').execute()
     # цыкл в сбора данных по апи<------------
     for i in dict1:
